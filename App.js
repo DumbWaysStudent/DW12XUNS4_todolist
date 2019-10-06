@@ -23,16 +23,19 @@ class App extends Component {
 }
 
 addTodo (item) {
-    console.log(this.state)
+    //console.log(this.state)
     const newTodo = this.state.todo
     newTodo.push(item)
 
     this.setState({ todo: newTodo })
   }
 
-// componentDidMount(){
-//   this.addTodo('apam')
-// }
+  deleteTodo (index) {
+    const newTodo = this.state.todo
+    newTodo.splice(index, 1)
+
+    this.setState({ todo: newTodo })
+  }
 
 render() {
   return (
@@ -48,7 +51,8 @@ render() {
 
       <View style={styles.todocontainer}>
         <TodoList
-          todo={this.state.todo} />
+          todo={this.state.todo}
+          deleteTodo={(value) => this.deleteTodo(value)}/>
       </View>
 
     </View>

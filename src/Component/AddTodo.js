@@ -17,16 +17,18 @@ class AddTodo extends Component {
     render(){
         return(
             <View style={styles.container}>
-                <View>
+                <View style={styles.inputcontainer}>
                     <TextInput
                         onChangeText={(text) => this.setState({inputValue: text})}
-                        style={styles.inputcontainer}
                         placeholder='Input your todo list here'
                         value={this.state.inputValue}/>
                 </View>
-                <View>
-                    <TouchableOpacity onPress={() => this.onPress()} style={styles.button} >
-                        <Text>Add</Text>
+                <View style={styles.button}>
+                    <TouchableOpacity 
+                    disabled={this.state.inputValue === '' ? true : false} 
+                    onPress={() => this.onPress()} 
+                    >
+                        <Text>ADD</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -41,7 +43,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-around',
+        marginVertical: 5
     },
     inputcontainer: {
         flex: 0,
@@ -49,7 +52,9 @@ const styles = StyleSheet.create({
     button: {
         flex: 0,
         padding: 10,
+        alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#487EE9'
+        backgroundColor: '#487EE9',
+        marginVertical: 5
     }
 })
