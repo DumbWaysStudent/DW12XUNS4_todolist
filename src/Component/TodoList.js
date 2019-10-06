@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, Text, View, StyleSheet, Image } from 'react-native';
 
-// const DATA = [
-//     'work',
-//     'swim',
-//     'study',
-//     'sleep',
-//     'run'
-// ]
 
 Item = ({ title }) => {
     return (
@@ -18,27 +11,11 @@ Item = ({ title }) => {
 }
 
 class TodoList extends Component {
-    constructor(){
-        super()
-        this.state = {
-            todo: [
-                'work',
-                'swim',
-                'study',
-                'sleep',
-                'run'
-            ]
-        }
-    }
-
-
-
-
     render(){
         return(
             <View style={styles.container}>
                 <FlatList
-                    data={this.state.todo}
+                    data={this.props.todo}
                     renderItem={(item) => <Item title={item} />}
                     keyExtractor={(item, index) => index}
                 />
