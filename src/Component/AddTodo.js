@@ -31,7 +31,6 @@ class AddTodo extends Component {
                         <Text>ADD</Text>
                     </TouchableOpacity>
                 </View>
-
             </View>
         )
     }
