@@ -7,6 +7,7 @@ import {
 import Header from './src/Component/Header';
 import TodoList from './src/Component/TodoList';
 import TextInput from './src/Component/TextInput';
+import AddTodo from './src/Component/AddTodo';
 
 class App extends Component {
   render() {
@@ -18,7 +19,7 @@ class App extends Component {
         </View>
 
         <View style={styles.textinputcontainer}>
-          <TextInput />
+          <AddTodo />
         </View>
 
         <View style={styles.todocontainer}>

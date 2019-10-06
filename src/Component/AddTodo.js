@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput } from 'react-native';
 
-class textInput extends Component {
+class AddTodo extends Component {
     render(){
         return(
             <View>
@@ -11,4 +11,4 @@ class textInput extends Component {
     }
 }
 
-export default textInput;
+export default AddTodo;
