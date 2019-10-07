@@ -18,24 +18,20 @@ class App extends Component {
             {title:'study', isDone: false},
             {title:'sleep', isDone: false},
             {title:'run', isDone: false}
-        ]
+        ],
+        activeItemId: null,
     }
 }
 
 addTodo (item) {
-    //console.log(this.state)
     const newTodo = this.state.todo
     newTodo.push({title: item,  isDone: false})
-
     this.setState({ todo: newTodo })
-
-    console.log(this.state.todo)
   }
 
   deleteTodo (index) {
     const newTodo = this.state.todo
     newTodo.splice(index, 1)
-
     this.setState({ todo: newTodo })
   }
 
@@ -45,8 +41,26 @@ addTodo (item) {
     this.setState({ todo: newTodo })
   }
 
+  updateTodo (index) {
+    if (this.state.activeItemId !== null) {
+      const newTodo = this.state.todo
+      this.state.activeItemId = null;
+      this.setState({ todo: newTodo })
+    }
+    else {
+      const newTodo = this.state.todo
+      this.state.activeItemId = index;
+      this.setState({ todo: newTodo })
+    }
+  }
 
-render() {
+  onChangeTodo (newTitle) {
+    const newTodo = this.state.todo
+    newTodo[this.state.activeItemId].title = newTitle
+    this.setState({ todo: newTodo })
+  }
+
+  render() {
   return (
     <View style={styles.container}>
 
@@ -55,16 +69,19 @@ render() {
       </View>
 
       <View style={styles.textinputcontainer}>
-        <AddTodo addTodo={(value) => this.addTodo(value)} />
+        <AddTodo
+        addTodo={(value) => this.addTodo(value)}/>
       </View>
 
       <View style={styles.todocontainer}>
         <TodoList
           todo={this.state.todo}
+          onChangeTodo={(newTitle) => this.onChangeTodo(newTitle)}
           deleteTodo={(value) => this.deleteTodo(value)}
           isDone={(value) => this.isDone(value)}
+          updateTodo={(value) => this.updateTodo(value)}
+          activeItemId={this.state.activeItemId}
         />
-          
       </View>
 
     </View>

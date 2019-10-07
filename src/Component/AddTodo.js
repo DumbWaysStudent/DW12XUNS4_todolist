@@ -14,6 +14,7 @@ class AddTodo extends Component {
         this.setState({inputValue: ''})
     }
 
+
     render(){
         return(
             <View style={styles.container}>
@@ -21,13 +22,13 @@ class AddTodo extends Component {
                     <TextInput
                         onChangeText={(text) => this.setState({inputValue: text})}
                         placeholder='Input your todo list here'
-                        value={this.state.inputValue}/>
+                        value={this.state.inputValue}
+                    />
                 </View>
                 <View style={styles.button}>
                     <TouchableOpacity 
                     disabled={this.state.inputValue === '' ? true : false} 
-                    onPress={() => this.onPress()} 
-                    >
+                    onPress={() => this.onPress()} >
                         <Text>ADD</Text>
                     </TouchableOpacity>
                 </View>
