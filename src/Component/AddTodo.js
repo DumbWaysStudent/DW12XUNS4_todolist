@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 class AddTodo extends Component {
     constructor(){
         super()
@@ -29,7 +29,7 @@ class AddTodo extends Component {
                     <TouchableOpacity 
                     disabled={this.state.inputValue === '' ? true : false} 
                     onPress={() => this.onPress()} >
-                        <Text>ADD</Text>
+                        <Text><Icon name="add-box" size={29} color="#000000"/></Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#487EE9',
         marginVertical: 5
     }
 })

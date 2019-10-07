@@ -1,15 +1,19 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 class UpdateTodo extends Component {
-
-    render () {
+    render() {
         return(
             <TouchableOpacity onPress={ () =>this.props.updateTodo() } style={styles.button}>
-                <Text>{this.props.isEditMode ? 'SAVE' : 'EDIT'}</Text>
+                <Text>{this.props.isEditMode 
+                    ? <Icon name="save" size={25} color="#000000" /> 
+                    : <Icon name="edit" size={25} color="#000000" />}
+                </Text>
             </TouchableOpacity >
         )
     }
+    
 }
 
 export default UpdateTodo;
@@ -20,7 +24,7 @@ const styles = StyleSheet.create({
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#487EE9',
+        backgroundColor: '#ffffff',
         marginVertical: 5
     }
 })

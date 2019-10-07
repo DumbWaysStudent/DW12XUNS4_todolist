@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 class DeleteTodo extends Component {
     render () {
         return(
             <TouchableOpacity onPress={() => this.props.deleteTodo()} style={styles.button}>
-                <Text>DELETE</Text>
+                <Text><Icon name="delete" size={30} color="000000" /></Text>
             </TouchableOpacity >
         )
     }
@@ -19,7 +20,8 @@ const styles = StyleSheet.create({
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#487EE9',
+        backgroundColor: '#ffffff',
         marginVertical: 5
-    }
+    },
+    
 })

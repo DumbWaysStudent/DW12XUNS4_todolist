@@ -9,11 +9,13 @@ Item = (props) => {
         <View style={styles.itemcontainer}>
             <View style={{flexDirection:'row'}}>
                 <CheckBox
+                style={styles.checkbox}
                 onChange={props.isDone}
                 value={props.check}/>
 
                 { props.activeItemId ===  props.index ?
                     <TextInput
+                        style={styles.title}
                         onChangeText={(value) => props.onChangeTodo(value)}
                         placeholder='Edit mode'
                         value={props.title}
@@ -65,18 +67,23 @@ const styles = StyleSheet.create ({
     },
     itemcontainer: {
         alignItems: 'center',
-        backgroundColor: '#487EE9',
+        backgroundColor: '#ffffff',
         padding: 10,
-        marginVertical: 2,
+        marginVertical: 5,
         marginHorizontal: 16,
         justifyContent: 'space-between',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        elevation: 2,
+        borderRadius: 10
     },
     title: {
         fontSize: 25,
-        color: '#ffffff'
+        color: '#000000'
     },
     button: {
         justifyContent: 'center',
+    },
+    checkbox: {
+        justifyContent: 'center'
     }
 })
